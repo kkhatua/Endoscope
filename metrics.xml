@@ -1,0 +1,796 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<guts>
+	<entity id="time">
+		<gutMetric>
+			<name>date</name>
+			<description>Timestamp</description>
+			<unit>yyyy-MM-dd</unit>
+		</gutMetric>
+		<gutMetric>
+			<name>clock</name>
+			<description>Timestamp</description>
+			<unit>hr:mm:ss</unit>
+		</gutMetric>
+	</entity>
+	<entity id="puts">
+		<gutMetric>
+			<name>puts</name>
+			<description># of Puts</description>
+			<unit>#Puts</unit>
+		</gutMetric>
+	</entity>
+	<entity id="rpc">
+		<gutMetric>
+			<name>rpc</name>
+			<description>RPC calls received</description>
+			<unit>RPCs</unit>
+		</gutMetric>
+	</entity>
+	<entity id="lpc">
+		<gutMetric>
+			<name></name>
+			<description></description>
+			<unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="rget">
+		<gutMetric>
+			<name>rget</name>
+			<description>Get RPC calls received</description>
+			<unit>RPCs</unit>
+		</gutMetric>
+	</entity>
+	<entity id="rgetR">
+		<gutMetric>
+			<name>rgetR</name>
+			<description>#Rows served for Get RPCs</description>
+			<unit>rows</unit>
+		</gutMetric>
+	</entity>
+	<entity id="rput">
+		<gutMetric>
+			<name>rput</name>
+			<description>Put RPC calls received</description>
+			<unit>RPCs</unit>
+		</gutMetric>
+	</entity>
+	<entity id="rputR">
+		<gutMetric>
+			<name>rputR</name>
+			<description>#Rows written for Put RPCs</description>
+			<unit>rows</unit>
+		</gutMetric>
+	</entity>
+	<entity id="sg">
+		<gutMetric>
+			<name>sg</name>
+			<description>?? #Spill Gets</description>
+			<unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="rsf">
+		<gutMetric>
+			<name>rsf</name>
+			<description>reserved free space in db memory-index</description>
+			<unit>MB</unit>
+		</gutMetric>
+	</entity>
+	<entity id="ior">
+		<gutMetric>
+			<name>ior_ops</name>
+			<description># Disk IO Reads</description>
+			<unit>#ops</unit>
+		</gutMetric>
+		<gutMetric>
+			<name>ior_mb</name>
+			<description>Total MB in Disk Reads</description>
+			<unit>MB</unit>
+		</gutMetric>
+	</entity>
+	<entity id="iow">
+		<gutMetric>
+			<name>iow_ops</name>
+			<description># Disk IO Reads</description>
+			<unit>#ops</unit>
+		</gutMetric>
+		<gutMetric>
+			<name>iow_mb</name>
+			<description>Total MB in Disk Writes</description>
+			<unit>MB</unit>
+		</gutMetric>
+	</entity>
+	<entity id="bucketWr">
+		<gutMetric>
+			<name>bucketWr_ops</name>
+			<description>writes to the bucket/log files in #ios</description>
+			<unit>ops</unit>
+		</gutMetric>
+		<gutMetric>
+			<name>bucketWr_mb</name>
+			<description>writes to the bucket/log files in MB</description>
+			<unit>MB</unit>
+		</gutMetric>
+	</entity>
+	<entity id="fl">
+		<gutMetric>
+			<name>fl</name>
+			<description># bucket-flushes</description>
+			<unit>flushes</unit>
+		</gutMetric>
+	</entity>
+	<entity id="write">
+		<gutMetric>
+			<name>write_rpc</name>
+			<description>remote writes in #RPCs</description>
+			<unit>rpc</unit>
+		</gutMetric>
+		<gutMetric>
+			<name>write_mb</name>
+			<description>remote writes in #MB</description>
+			<unit>MB</unit>
+		</gutMetric>
+	</entity>
+	<entity id="lwrite">
+		<gutMetric>
+			<name>lwrite_rpc</name>
+			<description>local writes in #RPCs</description>
+			<unit>rpc</unit>
+		</gutMetric>
+		<gutMetric>
+			<name>lwrite_mb</name>
+			<description>local writes in #MB</description>
+			<unit>MB</unit>
+		</gutMetric>
+	</entity>
+	<entity id="read">
+		<gutMetric>
+			<name>read_rpc</name>
+			<description>remote reads in #RPCs</description>
+			<unit>rpc</unit>
+		</gutMetric>
+		<gutMetric>
+			<name>read_mb</name>
+			<description>remote read in #MB</description>
+			<unit>MB</unit>
+		</gutMetric>
+	</entity>
+	<entity id="lread">
+		<gutMetric>
+			<name>lread_rpc</name>
+			<description>local reads in #RPCs</description>
+			<unit>rpc</unit>
+		</gutMetric>
+		<gutMetric>
+			<name>lread_mb</name>
+			<description>local reads in #MB</description>
+			<unit>MB</unit>
+		</gutMetric>
+	</entity>
+	<entity id="inode">
+		<gutMetric>
+			<name>inode_req</name>
+			<description>file inode LRUCache in #requests</description>
+			<unit>request</unit>
+		</gutMetric>
+		<gutMetric>
+			<name>inode_miss</name>
+			<description>file inode LRUCache in #miss</description>
+			<unit>request</unit>
+		</gutMetric>
+	</entity>
+	<entity id="small">
+		<gutMetric>
+			<name>small_req</name>
+			<description>small (max64k) file page Cache in #requests</description>
+			<unit>request</unit>
+		</gutMetric>
+		<gutMetric>
+			<name>small_miss</name>
+			<description>small (max64k) file page Cache in #miss</description>
+			<unit>request</unit>
+		</gutMetric>
+	</entity>
+	<entity id="large">
+		<gutMetric>
+			<name>large_req</name>
+			<description>large (min64k) file page Cache in #requests</description>
+			<unit>request</unit>
+		</gutMetric>
+		<gutMetric>
+			<name>large_miss</name>
+			<description>large (min64k) file page Cache in #miss</description>
+			<unit>request</unit>
+		</gutMetric>
+	</entity>
+	<entity id="meta">
+		<gutMetric>
+			<name>meta_req</name>
+			<description>meta-data (incl interim BTree Blks, Allocator Blks) LRUCache in #requests</description>
+			<unit>request</unit>
+		</gutMetric>
+		<gutMetric>
+			<name>meta_miss</name>
+			<description>meta-data (incl interim BTree Blks, Allocator Blks) LRUCache in #miss</description>
+			<unit>request</unit>
+		</gutMetric>
+	</entity>
+	<entity id="dir">
+		<gutMetric>
+			<name>dir_req</name>
+			<description>directory and KVStore pages (incl BTree Leaf Blks) Cache in #requests</description>
+			<unit>request</unit>
+		</gutMetric>
+		<gutMetric>
+			<name>dir_miss</name>
+			<description>directory and KVStore pages (incl BTree Leaf Blks) Cache in #miss</description>
+			<unit>request</unit>
+		</gutMetric>
+	</entity>
+	<entity id="table">
+		<gutMetric>
+			<name>table_req</name>
+			<description>? table Cache in #requests</description>
+			<unit>request</unit>
+		</gutMetric>
+		<gutMetric>
+			<name>table_miss</name>
+			<description>? table Cache in #miss</description>
+			<unit>request</unit>
+		</gutMetric>
+	</entity>
+	<entity id="bwrite">
+		<gutMetric>
+			<name>bwrite_rpc</name>
+			<description>block writes in #RPCs?</description>
+			<unit>rpc</unit>
+		</gutMetric>
+		<gutMetric>
+			<name>bwrite_mb</name>
+			<description>block writes in #MB?</description>
+			<unit>MB</unit>
+		</gutMetric>
+	</entity>
+	<entity id="shmem">
+		<gutMetric>
+			<name>shmem_req</name>
+			<description># of sharedMem requests?</description>
+			<unit>request</unit>
+		</gutMetric>
+		<gutMetric>
+			<name>shmem_miss</name>
+			<description># of sharedMem miss?</description>
+			<unit>request</unit>
+		</gutMetric>
+	</entity>
+	<entity id="tget">
+		<gutMetric>
+			<name>tget</name>
+			<description>number of get requests at the tablet level</description>
+			<unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="vcM">
+		<gutMetric>
+			<name>vcM</name><description>valueCache size in #MB</description>
+			<unit>MB</unit>
+		</gutMetric>
+	</entity>
+	<entity id="vcL">
+		<gutMetric>
+			<name>vcL</name><description># lookups in the valueCache</description>
+			<unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="vcH">
+		<gutMetric>
+			<name>vcH</name><description>#hits in the valueCache</description>
+			<unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="spg">
+		<gutMetric>
+			<name>spg</name><description># gets at the spill level (roughly proprtional to number of disk-ios)</description>
+			<unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="bskp">
+		<gutMetric>
+			<name>bskp</name><description># disk-ios that could be saved/skipped by the bloom-filter</description>
+			<unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="cm">
+		<gutMetric>
+			<name>cm</name>
+			<description>CacheMisses</description>
+			<unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="chit">
+		<gutMetric>
+			<name>chit</name>
+			<description># CacheHits</description>
+			<unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="ra">
+		<gutMetric>
+			<name>ra</name>
+			<description># ReadAhead Ops</description>
+			<unit>#ops</unit>
+		</gutMetric>
+	</entity>
+	<entity id="ras">
+		<gutMetric>
+			<name>ras</name>
+			<description>Total MB in Read Ahead</description>
+			<unit>MB</unit>
+		</gutMetric>
+	</entity>
+	<entity id="rchk">
+		<gutMetric>
+			<name>rchk</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+		<gutMetric>
+			<name>rchkXtra</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<!-- 
+	<entity id="im">
+		<gutMetric>
+			<name>im</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="om">
+		<gutMetric>
+			<name>om</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="splBy">
+		<gutMetric>
+			<name>splBy</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="tgetR">
+		<gutMetric>
+			<name>tgetR</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="cget">
+		<gutMetric>
+			<name>cget</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="bget">
+		<gutMetric>
+			<name>bget</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="sg">
+		<gutMetric>
+			<name>sg</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="riIO">
+		<gutMetric>
+			<name>riIO</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="riBS">
+		<gutMetric>
+			<name>riBS</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="tputR">
+		<gutMetric>
+			<name>tputR</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="cput">
+		<gutMetric>
+			<name>cput</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="ffl">
+		<gutMetric>
+			<name>ffl</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="sfl">
+		<gutMetric>
+			<name>sfl</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="mcom">
+		<gutMetric>
+			<name>mcom</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="fcom">
+		<gutMetric>
+			<name>fcom</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="ccom">
+		<gutMetric>
+			<name>ccom</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="scr">
+		<gutMetric>
+			<name>scr</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="spcr">
+		<gutMetric>
+			<name>spcr</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="rsc">
+		<gutMetric>
+			<name>rsc</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="rscR">
+		<gutMetric>
+			<name>rscR</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="csc">
+		<gutMetric>
+			<name>csc</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="bsc">
+		<gutMetric>
+			<name>bsc</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="ssc">
+		<gutMetric>
+			<name>ssc</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="spsc">
+		<gutMetric>
+			<name>spsc</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="spscR">
+		<gutMetric>
+			<name>spscR</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="ldbr">
+		<gutMetric>
+			<name>ldbr</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="blkr">
+		<gutMetric>
+			<name>blkr</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="raSg">
+		<gutMetric>
+			<name>raSg</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="raSp">
+		<gutMetric>
+			<name>raSp</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="nAdv">
+		<gutMetric>
+			<name>nAdv</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="raBl">
+		<gutMetric>
+			<name>raBl</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="rinc">
+		<gutMetric>
+			<name>rinc</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="cinc">
+		<gutMetric>
+			<name>cinc</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="rapp">
+		<gutMetric>
+			<name>rapp</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="rtlk">
+		<gutMetric>
+			<name>rtlk</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="ctlk">
+		<gutMetric>
+			<name>ctlk</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="rbulkb">
+		<gutMetric>
+			<name>rbulkb</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="rbulks">
+		<gutMetric>
+			<name>rbulks</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="rim">
+		<gutMetric>
+			<name>rim</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="rip">
+		<gutMetric>
+			<name>rip</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="rom">
+		<gutMetric>
+			<name>rom</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="rop">
+		<gutMetric>
+			<name>rop</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="rob">
+		<gutMetric>
+			<name>rob</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="rocm">
+		<gutMetric>
+			<name>rocm</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="mpr">
+		<gutMetric>
+			<name>mpr</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="mpm">
+		<gutMetric>
+			<name>mpm</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="mpMB">
+		<gutMetric>
+			<name>mpMB</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="mlr">
+		<gutMetric>
+			<name>mlr</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="mlm">
+		<gutMetric>
+			<name>mlm</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="mcl">
+		<gutMetric>
+			<name>mcl</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="mlMB">
+		<gutMetric>
+			<name>mlMB</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="cr">
+		<gutMetric>
+			<name>cr</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="cdi">
+		<gutMetric>
+			<name>cdi</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="rdi">
+		<gutMetric>
+			<name>rdi</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="lkp">
+		<gutMetric>
+			<name>lkp</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="sl">
+		<gutMetric>
+			<name>sl</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="vl">
+		<gutMetric>
+			<name>vl</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="ul">
+		<gutMetric>
+			<name>ul</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="dvl">
+		<gutMetric>
+			<name>dvl</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="ga">
+		<gutMetric>
+			<name>ga</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="sa">
+		<gutMetric>
+			<name>sa</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="rd">
+		<gutMetric>
+			<name>rd</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="rdp">
+		<gutMetric>
+			<name>rdp</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="rl">
+		<gutMetric>
+			<name>rl</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="r">
+		<gutMetric>
+			<name>r</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="w">
+		<gutMetric>
+			<name>w</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="sf">
+		<gutMetric>
+			<name>sf</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="td">
+		<gutMetric>
+			<name>td</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="ksi">
+		<gutMetric>
+			<name>ksi</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="ksd">
+		<gutMetric>
+			<name>ksd</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="hb">
+		<gutMetric>
+			<name>hb</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="cp">
+		<gutMetric>
+			<name>cp</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="uc">
+		<gutMetric>
+			<name>uc</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="cf">
+		<gutMetric>
+			<name>cf</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="ucs">
+		<gutMetric>
+			<name>ucs</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="ses">
+		<gutMetric>
+			<name>ses</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="pr">
+		<gutMetric>
+			<name>pr</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="sr">
+		<gutMetric>
+			<name>sr</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="ow">
+		<gutMetric>
+			<name>ow</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="rr">
+		<gutMetric>
+			<name>rr</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="vsr">
+		<gutMetric>
+			<name>vsr</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="raN">
+		<gutMetric>
+			<name>raN</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="raM">
+		<gutMetric>
+			<name>raM</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="raL">
+		<gutMetric>
+			<name>raL</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="raJ">
+		<gutMetric>
+			<name>raJ</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="adU">
+		<gutMetric>
+			<name>adU</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="shmem">
+		<gutMetric>
+			<name>shmem</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="di">
+		<gutMetric>
+			<name>di</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="ic">
+		<gutMetric>
+			<name>ic</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="dd">
+		<gutMetric>
+			<name>dd</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="dc">
+		<gutMetric>
+			<name>dc</name><description>-missingDecription-</description><unit></unit>
+		</gutMetric>
+	</entity>
+	-->
+</guts>
+

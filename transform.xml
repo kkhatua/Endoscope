@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<translate>
+	<!-- Place holder till a formal Timestamp solution is made-->
+	<metric id="date clock">
+		<formula>date clock</formula>
+		<description>Concat Test</description>
+		<unit>blah</unit>
+	</metric>
+	<metric id="rpc"/>
+	<!-- DB Get -->
+	<metric id="rget"/>
+	<metric id="rgetR"/>
+	<metric id="tgetR"/>
+	<metric id="cget"/>
+	<!-- DB Put -->
+	<metric id="rput"/>
+	<metric id="rputR"/>
+	<metric id="tputR"/>
+	<metric id="cput"/>
+	<!-- DB Scan -->
+	<metric id="rsc"/>
+	<metric id="rscR"/>
+	<!-- DB Activity -->
+	<metric id="bucketWr_mb"/>
+	<metric id="fl"/>
+	<metric id="ffl"/>
+	<metric id="scr"/>
+	<metric id="spcr"/>
+	<!-- FileServer Activity -->
+	<metric id="read_mb"/>
+	<metric id="write_mb"/>
+	<metric id="lread_mb"/>
+	<metric id="lwrite_mb"/>
+	<!-- Value Cache -->
+	<metric id="vcL"/>
+	<metric id="vcH"/>
+	<!-- INode Cache -->
+	<metric id="inode_req"/>
+	<metric id="inode_miss"/>
+	<!-- Small Cache -->
+	<metric id="small_req"/>
+	<metric id="small_miss"/>
+	<!-- Large Cache -->
+	<metric id="large_req"/>
+	<metric id="large_miss"/>
+	<!-- Meta Cache -->
+	<metric id="meta_req"/>
+	<metric id="meta_miss"/>
+	<!-- Disk IO -->
+	<metric id="ior_mb"/>
+	<metric id="iow_mb"/>
+	<!-- Network IO -->
+	<metric id="im"/>
+	<metric id="om"/>
+	<!-- General Cache -->
+	<!-- ReadAhead -->
+	<metric id="ras"/>
+	<metric id="ra"/>
+	<!-- AvgBlockSizePerOp-->
+</translate>
+
+<!--
+<guts>
+	<entity id="time">
+		<gutMetric>
+			<name>time</name>
+			<description>Timestamp</description>
+			<unit>hr:mm:ss</unit>
+		</gutMetric>
+	</entity>
+	<entity id="puts">
+		<gutMetric>
+			<name>puts</name>
+			<description># of Puts</description>
+			<unit>#Puts</unit>
+		</gutMetric>
+	</entity>
+	<entity id="rpc">
+		<gutMetric>
+			<name>rpc</name>
+			<description>RPC calls received</description>
+			<unit>RPCs</unit>
+		</gutMetric>
+	</entity>
+	<entity id="lpc">
+		<gutMetric>
+			<name></name>
+			<description></description>
+			<unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="rsf">
+		<gutMetric>
+			<name>rsf</name>
+			<description>reserved free space in db memory-index</description>
+			<unit>MB</unit>
+		</gutMetric>
+	</entity>
+	<entity id="ior">
+		<gutMetric>
+			<name>ior_ops</name>
+			<description># Disk IO Reads</description>
+			<unit>#ops</unit>
+		</gutMetric>
+		<gutMetric>
+			<name>ior_mb</name>
+			<description>Total MB in Disk Reads</description>
+			<unit>MB</unit>
+		</gutMetric>
+	</entity>
+	<entity id="iow">
+		<gutMetric>
+			<name>iow_ops</name>
+			<description># Disk IO Reads</description>
+			<unit>#ops</unit>
+		</gutMetric>
+		<gutMetric>
+			<name>iow_mb</name>
+			<description>Total MB in Disk Writes</description>
+			<unit>MB</unit>
+		</gutMetric>
+	</entity>
+	<entity id="bucketWr">
+		<gutMetric>
+			<name>bucketWr_ops</name>
+			<description>writes to the bucket/log files in #ios</description>
+			<unit>ops</unit>
+		</gutMetric>
+		<gutMetric>
+			<name>bucketWr_mb</name>
+			<description>writes to the bucket/log files in MB</description>
+			<unit>MB</unit>
+		</gutMetric>
+	</entity>
+	<entity id="fl">
+		<gutMetric>
+			<name>fl</name>
+			<description># bucket-flushes</description>
+			<unit>flushes</unit>
+		</gutMetric>
+	</entity>
+	<entity id="write">
+		<gutMetric>
+			<name>write_rpc</name>
+			<description>remote writes in #RPCs</description>
+			<unit>rpc</unit>
+		</gutMetric>
+		<gutMetric>
+			<name>write_mb</name>
+			<description>remote writes in #MB</description>
+			<unit>MB</unit>
+		</gutMetric>
+	</entity>
+	<entity id="lwrite">
+		<gutMetric>
+			<name>lwrite_rpc</name>
+			<description>local writes in #RPCs</description>
+			<unit>rpc</unit>
+		</gutMetric>
+		<gutMetric>
+			<name>lwrite_mb</name>
+			<description>local writes in #MB</description>
+			<unit>MB</unit>
+		</gutMetric>
+	</entity>
+	<entity id="read">
+		<gutMetric>
+			<name>read_rpc</name>
+			<description>remote reads in #RPCs</description>
+			<unit>rpc</unit>
+		</gutMetric>
+		<gutMetric>
+			<name>read_mb</name>
+			<description>remote read in #MB</description>
+			<unit>MB</unit>
+		</gutMetric>
+	</entity>
+	<entity id="lread">
+		<gutMetric>
+			<name>lread_rpc</name>
+			<description>local reads in #RPCs</description>
+			<unit>rpc</unit>
+		</gutMetric>
+		<gutMetric>
+			<name>lread_mb</name>
+			<description>local reads in #MB</description>
+			<unit>MB</unit>
+		</gutMetric>
+	</entity>
+	<entity id="inode">
+		<gutMetric>
+			<name>inode_req</name>
+			<description>file inode LRUCache in #requests</description>
+			<unit>request</unit>
+		</gutMetric>
+		<gutMetric>
+			<name>inode_miss</name>
+			<description>file inode LRUCache in #miss</description>
+			<unit>request</unit>
+		</gutMetric>
+	</entity>
+	<entity id="small">
+		<gutMetric>
+			<name>small_req</name>
+			<description>small (max64k) file page Cache in #requests</description>
+			<unit>request</unit>
+		</gutMetric>
+		<gutMetric>
+			<name>small_miss</name>
+			<description>small (max64k) file page Cache in #miss</description>
+			<unit>request</unit>
+		</gutMetric>
+	</entity>
+	<entity id="large">
+		<gutMetric>
+			<name>large_req</name>
+			<description>large (min64k) file page Cache in #requests</description>
+			<unit>request</unit>
+		</gutMetric>
+		<gutMetric>
+			<name>large_miss</name>
+			<description>large (min64k) file page Cache in #miss</description>
+			<unit>request</unit>
+		</gutMetric>
+	</entity>
+	<entity id="meta">
+		<gutMetric>
+			<name>meta_req</name>
+			<description>meta-data (incl interim BTree Blks, Allocator Blks) LRUCache in #requests</description>
+			<unit>request</unit>
+		</gutMetric>
+		<gutMetric>
+			<name>meta_miss</name>
+			<description>meta-data (incl interim BTree Blks, Allocator Blks) LRUCache in #miss</description>
+			<unit>request</unit>
+		</gutMetric>
+	</entity>
+	<entity id="dir">
+		<gutMetric>
+			<name>dir_req</name>
+			<description>directory and KVStore pages (incl BTree Leaf Blks) Cache in #requests</description>
+			<unit>request</unit>
+		</gutMetric>
+		<gutMetric>
+			<name>dir_miss</name>
+			<description>directory and KVStore pages (incl BTree Leaf Blks) Cache in #miss</description>
+			<unit>request</unit>
+		</gutMetric>
+	</entity>
+	<entity id="table">
+		<gutMetric>
+			<name>table_req</name>
+			<description>? table Cache in #requests</description>
+			<unit>request</unit>
+		</gutMetric>
+		<gutMetric>
+			<name>table_miss</name>
+			<description>? table Cache in #miss</description>
+			<unit>request</unit>
+		</gutMetric>
+	</entity>
+	<entity id="ffl">
+		<gutMetric>
+			<name></name>
+			<description></description>
+			<unit></unit>
+		</gutMetric>
+	</entity>
+	<entity id="sfl">
+		<gutMetric>
+			<name></name>
+		</gutMetric>
+	</entity>
+	<entity id="mcom">
+		<gutMetric>
+			<name></name>
+		</gutMetric>
+	</entity>
+	<entity id="fcom">
+		<gutMetric>
+			<name></name>
+		</gutMetric>
+	</entity>
+	<entity id="ccom">
+		<gutMetric>
+			<name></name>
+		</gutMetric>
+	</entity>
+	<entity id="scr">
+		<gutMetric>
+			<name></name>
+		</gutMetric>
+	</entity>
+	<entity id="spcr">
+		<gutMetric>
+			<name></name>
+		</gutMetric>
+	</entity>
+	<entity id="bwrite">
+		<gutMetric>
+			<name></name>
+		</gutMetric>
+	</entity>
+	<entity id="di">
+		<gutMetric>
+			<name></name>
+		</gutMetric>
+	</entity>
+	<entity id="ic">
+		<gutMetric>
+			<name></name>
+		</gutMetric>
+	</entity>
+	<entity id="dd">
+		<gutMetric>
+			<name></name>
+		</gutMetric>
+	</entity>
+	<entity id="dc">
+		<gutMetric>
+			<name></name>
+		</gutMetric>
+	</entity>
+-->
+
